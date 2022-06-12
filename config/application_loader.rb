@@ -11,6 +11,10 @@ module ApplicationLoader
     require_file('config/application')
   end
 
+  def init_app
+    require_dir('config/initializers')
+  end
+
   def require_file(file_path)
     require global_path_to(file_path)
   end
