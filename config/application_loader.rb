@@ -3,6 +3,7 @@ module ApplicationLoader
 
   def load_app!
     require_app
+    init_app
   end
 
   private

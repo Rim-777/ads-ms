@@ -1,4 +1,4 @@
-require_relative 'config/evnironment'
+require_relative 'config/environment'
 
 map '/ads' do
   run Application
