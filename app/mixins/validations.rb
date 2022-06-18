@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Validations
   def validates(type, *attrs, **options)
     options_message = options[:message]
@@ -9,7 +11,8 @@ module Validations
         else
           I18n.t(
             error_key(type),
-            scope: 'model.errors', attr: attr
+            scope: 'model.errors',
+            attr: attr
           )
         end
 
@@ -19,10 +22,10 @@ module Validations
 
   private
 
-  def error_key(type)
-    case type
-    when :presence
-      :blank
-    end
+  def error_key(key)
+    Hash[
+      :presence, :blank,
+      :uniqueness, :not_uniq
+    ].fetch(key)
   end
 end
